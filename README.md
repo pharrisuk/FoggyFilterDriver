@@ -1,0 +1,21 @@
+# Ascom Driver and Firmware for Custom Filter Wheel Driver
+
+This repository contains an Ascom filter driver and arduino scripts to control an add-on electronic driver for the ZWO 1.25" manual astronomy filter wheel.
+
+> [!NOTE]
+> A second repository with 3D design files and overall description of the solution will be made available soon.
+
+## Firmware
+The filter driver is controlled by a [Seeduino Xiao ESP32C3](https://wiki.seeedstudio.com/XIAO_ESP32C3_Getting_Started/) microcontroller. The three scripts supplied here are:
+
+- [Tester Script](filterwheel_firmware/filter_wheel_script_v1.1/tester2.ino) : Script to test basic funtionality of the stepper motor, buttons and hall sensor.
+- [Magnet Offset Calibration Tool](filterwheel_firmware/filter_wheel_script_v1.1/fw_magnet_offset_calibrator.ino) : Script to measure the number of steps between the magnet inserted into the filter wheel and the first filter (stepping clockwise).
+- [Filter Wheel Driver](filterwheel_firmware/filter_wheel_script_v1.1/filter_wheel_script_v1.1.ino): The main driver (Set FILTER1_POS to the number of steps measured by the script above for initial calibration).
+
+
+## Ascom Filter Wheel Driver
+The main contents of the repository is the Visual Studio solution 'FoggyFilterDriver'. It was created with the Visual Studio Extension:
+[ASCOM Platform 7 Project Templates (VS2022)](https://marketplace.visualstudio.com/items?itemName=PeterSimpson.ASCOMPlatform7Templates2022)
+
+
+

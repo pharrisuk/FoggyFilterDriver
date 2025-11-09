@@ -50,7 +50,6 @@ namespace ASCOM.FoggyAstroFilterWheel.FilterWheel
         private static string DriverProgId = ""; // ASCOM DeviceID (COM ProgID) for this driver, the value is set by the driver's class initialiser.
         private static string DriverDescription = ""; // The value is set by the driver's class initialiser.
         internal static string comPort; // COM port name (if required)
-        internal static string comPortSpeed; // COM port speed (if required)
         private static bool connectedState; // Local server's connected state
         private static bool runOnce = false; // Flag to enable "one-off" activities only to run once.
         internal static Util utilities; // ASCOM Utilities object for use as required
@@ -117,10 +116,15 @@ namespace ASCOM.FoggyAstroFilterWheel.FilterWheel
                 // Add your own "one off" device initialisation here e.g. validating existence of hardware and setting up communications
                 // If you are using a serial COM port you will find the COM port name selected by the user through the setup dialogue in the comPort variable.
                 serialPort.Port = Int32.Parse(comPort.Substring(3));
-                //serialPort.Speed = (SerialSpeed)Int32.Parse(comPortSpeed);
-                //serialPort.Port = 3;
                 serialPort.Speed = SerialSpeed.ps9600;
+                //Open the com port. This will cause the arduino to reset and re-calibrate,
+                //which can take up to about 60 seconds, depending on the initial position
+                //of the filter wheel.
+                serialPort.ReceiveTimeout = 90;
                 serialPort.Connected = true;
+                LogMessage("InitialiseHardware", "Calibrating filter wheel");
+                SerialCmd("CALIBRATE#");
+                serialPort.ReceiveTimeout = 10;
 
                 LogMessage("InitialiseHardware", $"One-off initialisation complete.");
                 runOnce = true; // Set the flag to ensure that this code is not run again
@@ -309,9 +313,16 @@ namespace ASCOM.FoggyAstroFilterWheel.FilterWheel
                         //
                         // Add hardware connect logic here
                         //
+                        string connectCmd="CONNECT";
                         LogMessage("SetConnected", $"Connecting to hardware.");
-                        SerialCmd("GETFILTER#");
-                        connectedState = true;
+                        foreach (string fwName in fwNames) // Write filter names to the log
+                        {
+                            connectCmd = connectCmd + "," + fwName;
+                        }
+                        connectCmd = connectCmd + "#";
+                        LogMessage("SetConnected", "connectCMD: " + connectCmd);
+                        SerialCmd(connectCmd);
+                        //connectedState = true;
                     }
                     else // Other device instances are connected so the hardware is already connected
                     {

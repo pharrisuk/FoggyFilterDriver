@@ -87,8 +87,9 @@ void setup() {
 
   hallSensorState = digitalRead(HALL_SENSOR);
 
-  displayPrint("Calibrate",1);
-  displayPrint("or Connect",2); 
+  calibrate();
+  //displayPrint("Calibrate",1);
+  //displayPrint("or Connect",2); 
   
   /*
   delay(2000);
@@ -128,12 +129,12 @@ void loop() {
 
   if(digitalRead(LEFT_BUTTON) == LOW){
     if(!calibrated)calibrate();
-    else nudgeFilter(ANTI_CLOCKWISE);
+    else nudgeFilter(CLOCKWISE);
   }
 
   if(digitalRead(RIGHT_BUTTON) == LOW){
     if(!calibrated)calibrate();
-    else nudgeFilter(CLOCKWISE);
+    else nudgeFilter(ANTI_CLOCKWISE);
   }
 
   //sprintf(msg,"Pos %d",position);

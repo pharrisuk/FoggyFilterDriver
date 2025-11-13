@@ -117,6 +117,7 @@ namespace ASCOM.FoggyAstroFilterWheel.FilterWheel
                 // If you are using a serial COM port you will find the COM port name selected by the user through the setup dialogue in the comPort variable.
                 serialPort.Port = Int32.Parse(comPort.Substring(3));
                 serialPort.Speed = SerialSpeed.ps9600;
+                serialPort.DTREnable = false;
                 //Open the com port. This will cause the arduino to reset and re-calibrate,
                 //which can take up to about 60 seconds, depending on the initial position
                 //of the filter wheel.

@@ -18,5 +18,8 @@ The filter driver is controlled by a [Seeduino Xiao ESP32C3](https://wiki.seeeds
 The main contents of the repository is the Visual Studio solution 'FoggyFilterDriver'. It was created with the Visual Studio Extension:
 [ASCOM Platform 7 Project Templates (VS2022)](https://marketplace.visualstudio.com/items?itemName=PeterSimpson.ASCOMPlatform7Templates2022)
 
+I used this Youtube videa as my starting point. It was very useful but quite old now. The Ascom driver design in V7 is different, but the initial steps to install the Ascom templates and generate a sample were the same from what I recall.
+[ASCOM Driver tutorial for Arduino Astronomy Hardware using Visual Studio](https://www.youtube.com/watch?v=XVlrDyIBd5I)
+
 
 

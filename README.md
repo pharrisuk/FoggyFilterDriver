@@ -3,7 +3,8 @@
 This repository contains an Ascom filter driver and arduino scripts to control an add-on electronic driver for the ZWO 1.25" manual astronomy filter wheel.
 
 > [!NOTE]
-> A second repository with 3D design files and overall description of the solution will be made available soon.
+> A second repository with 3D design files and overall description of the solution can be found here:
+> [Foggy-Astro-Filter-Wheel-Automation](https://github.com/pharrisuk/Foggy-Astro-Filter-Wheel-Automation/blob/main/README.md)
 
 ## Firmware
 The filter driver is controlled by a [Seeduino Xiao ESP32C3](https://wiki.seeedstudio.com/XIAO_ESP32C3_Getting_Started/) microcontroller. The three scripts supplied here are:

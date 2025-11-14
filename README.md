@@ -21,5 +21,10 @@ The main contents of the repository is the Visual Studio solution 'FoggyFilterDr
 I used this Youtube videa as my starting point. It was very useful but quite old now. The Ascom driver design in V7 is different, but the initial steps to install the Ascom templates and generate a sample were the same from what I recall.
 [ASCOM Driver tutorial for Arduino Astronomy Hardware using Visual Studio](https://www.youtube.com/watch?v=XVlrDyIBd5I)
 
+### Installing the driver
+You can install the driver using this setup program (uses Inno Setup): [FoggyAstroFW Setup.exe](installer/FoggyAstroFW%20Setup.exe)
+
+Or load the repo into VisualStudio, and follow the Ascom template instructions to register the exe with Ascom : [ReadMe.htm](https://htmlpreview.github.io/?https://github.com/pharrisuk/FoggyFilterDriver/blob/main/FoggyFilterDriver/ReadMe.htm)
+
 
 

@@ -36,7 +36,7 @@ Name: "{commoncf}\ASCOM\Uninstall\FilterWheel\FoggyAstroFW"
 [Files]
 Source: "C:\Users\pharr\source\repos\FoggyFilterDriver\FoggyFilterDriver\bin\Release\ASCOM.FoggyAstroFilterWheel.exe"; DestDir: "{app}" ;AfterInstall: RegASCOM()
 ; Require a read-me HTML to appear after installation, maybe driver's Help doc
-Source: "C:\Users\pharr\source\repos\FoggyFilterDriver\FoggyFilterDriver\FoggyAstroFWReadMe.html"; DestDir: "{app}"; Flags: isreadme
+Source: "C:\Users\pharr\source\repos\FoggyFilterDriver\Installer\FoggyAstroFWReadMe.html"; DestDir: "{app}"; Flags: isreadme
 ; TODO: Add other files needed by your driver here (add subfolders above)
 
 ;Only if COM Local Server
